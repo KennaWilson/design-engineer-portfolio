@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume | McKenna Wilson</title>
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=Nunito:wght@400;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #fdf8f0;
+      --ink: #1a1207;
+      --coral: #ff6b4a;
+      --mint: #3ecf8e;
+      --lemon: #ffe145;
+      --sky: #7ec8e3;
+      --lilac: #c8a8f9;
+      --peach: #ffb347;
+      --border-w: 2.5px;
+      --radius: 16px;
+      --radius-sm: 8px;
+      --shadow: 4px 4px 0px var(--ink);
+      --shadow-lg: 6px 6px 0px var(--ink);
+      --display: 'Fraunces', serif;
+      --sans: 'Nunito', sans-serif;
+      --mono: 'Fira Code', monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--cream); color: var(--ink); font-family: var(--sans); }
+
+    .doodle-bg { position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.055; overflow: hidden; }
+    .doodle-bg svg { width: 100%; height: 100%; }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      padding: 14px 40px;
+      background: var(--cream);
+      border-bottom: var(--border-w) solid var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      text-decoration: none;
+      color: var(--ink);
+      font-family: var(--display);
+      font-weight: 900;
+      font-size: 22px;
+      font-style: italic;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo-badge {
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 2px 8px;
+      border: var(--border-w) solid var(--ink);
+      border-radius: 6px;
+      background: var(--lemon);
+      box-shadow: 2px 2px 0 var(--ink);
+      font-style: normal;
+    }
+    .nav-links { display: flex; align-items: center; gap: 8px; }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 800;
+      padding: 7px 14px;
+      border-radius: 999px;
+      border: var(--border-w) solid transparent;
+    }
+    .nav-links a:hover { background: var(--lemon); border-color: var(--ink); box-shadow: var(--shadow); }
+    .nav-links .active { background: var(--ink); color: var(--lemon); border-color: var(--ink); }
+
+    .page { position: relative; z-index: 1; max-width: 1140px; margin: 0 auto; padding: 44px 24px 90px; }
+
+    .hero {
+      background: #fff;
+      border: var(--border-w) solid var(--ink);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      padding: 28px;
+      margin-bottom: 24px;
+    }
+    .hero-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 220px;
+      gap: 24px;
+      align-items: center;
+    }
+    .hero-photo {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: var(--border-w) solid var(--ink);
+      box-shadow: var(--shadow);
+      background: #fff;
+      justify-self: end;
+    }
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: var(--border-w) solid var(--ink);
+      border-radius: 999px;
+      background: var(--mint);
+      padding: 5px 12px;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-family: var(--display);
+      font-size: clamp(44px, 7vw, 74px);
+      line-height: 0.95;
+      margin-bottom: 12px;
+    }
+    .subtitle { max-width: 760px; opacity: 0.75; line-height: 1.7; margin-bottom: 16px; }
+    .quick-links { display: flex; flex-wrap: wrap; gap: 10px; }
+    .quick-links a {
+      text-decoration: none;
+      color: var(--ink);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 700;
+      background: var(--cream);
+      border: 2px solid var(--ink);
+      border-radius: 999px;
+      padding: 5px 12px;
+    }
+
+    .download-row {
+      margin-top: 14px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 800;
+      padding: 11px 18px;
+      border-radius: 12px;
+      border: var(--border-w) solid var(--ink);
+      box-shadow: var(--shadow);
+    }
+    .btn-fill { background: var(--ink); color: var(--lemon); }
+    .btn-outline { background: #fff; color: var(--ink); }
+
+    .resume-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 18px;
+    }
+    .panel {
+      background: #fff;
+      border: var(--border-w) solid var(--ink);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+    .section-title {
+      font-family: var(--display);
+      font-size: 36px;
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+    .chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip {
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 2px solid var(--ink);
+      background: var(--cream);
+    }
+    .chip.coral { background: var(--coral); color: #fff; }
+    .chip.sky { background: var(--sky); }
+    .chip.lemon { background: var(--lemon); }
+    .chip.lilac { background: var(--lilac); }
+    .chip.mint { background: var(--mint); }
+
+    .entry { padding: 14px 0; border-top: 1.5px dashed rgba(26, 18, 7, 0.2); }
+    .entry:first-of-type { border-top: 0; padding-top: 0; }
+    .entry-title {
+      font-weight: 900;
+      font-size: 18px;
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+    .entry-meta {
+      font-family: var(--mono);
+      font-size: 11px;
+      opacity: 0.55;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+    .entry p { font-size: 14px; line-height: 1.7; opacity: 0.88; margin-bottom: 8px; }
+    .entry ul { margin-left: 18px; }
+    .entry li { margin-bottom: 6px; line-height: 1.5; font-size: 14px; }
+
+    .kpi {
+      border: var(--border-w) solid var(--ink);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      margin-bottom: 10px;
+      background: var(--cream);
+    }
+    .kpi-value { font-family: var(--display); font-size: 34px; line-height: 1; }
+    .kpi-label { font-size: 12px; font-weight: 700; opacity: 0.7; }
+
+    .stack { display: grid; gap: 18px; }
+    footer {
+      margin-top: 30px;
+      text-align: center;
+      font-family: var(--mono);
+      font-size: 12px;
+      opacity: 0.45;
+    }
+
+    @media (max-width: 980px) {
+      nav { padding: 12px 16px; gap: 12px; flex-wrap: wrap; }
+      .resume-grid { grid-template-columns: 1fr; }
+      .nav-links { overflow-x: auto; width: 100%; padding-bottom: 2px; }
+      .hero-layout {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+      }
+      .hero-photo {
+        justify-self: center;
+        width: 180px;
+        height: 180px;
+      }
+      .subtitle { margin-left: auto; margin-right: auto; }
+      .quick-links, .download-row { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="doodle-bg">
+    <svg viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <circle cx="200" cy="150" r="80" stroke="#1a1207" stroke-width="2.5"/>
+      <circle cx="200" cy="150" r="48" stroke="#1a1207" stroke-width="1.5"/>
+      <rect x="1200" y="80" width="120" height="120" rx="12" stroke="#1a1207" stroke-width="2.5" transform="rotate(15 1260 140)"/>
+      <line x1="620" y1="40" x2="660" y2="80" stroke="#1a1207" stroke-width="2.5"/>
+      <line x1="660" y1="40" x2="620" y2="80" stroke="#1a1207" stroke-width="2.5"/>
+      <circle cx="640" cy="60" r="32" stroke="#1a1207" stroke-width="1.5" stroke-dasharray="6 4"/>
+    </svg>
+  </div>
+
+  <nav>
+    <a href="index.html" class="nav-logo">✦ McKenna Wilson <span class="logo-badge">resume</span></a>
+    <div class="nav-links">
+      <a href="index.html#skills">Skills</a>
+      <a href="index.html#projects">Work</a>
+      <a href="index.html#achievements">Badges</a>
+      <a href="index.html#about">About</a>
+      <a href="resume.html" class="active">Resume</a>
+      <a href="index.html#contact">Hire Me</a>
+    </div>
+  </nav>
+
+  <main class="page">
+    <section class="hero">
+      <div class="hero-layout">
+        <div class="hero-content">
+          <div class="hero-eyebrow">Design Engineer Resume</div>
+          <h1>McKenna Wilson</h1>
+          <p class="subtitle">
+            UX Designer and Design Engineer focused on turning research and strategy into production-ready
+            experiences. I work across UX, frontend, and systems thinking to build products people actually enjoy using.
+          </p>
+          <div class="quick-links">
+            <a href="mailto:mckennawilson1824@gmail.com">mckennawilson1824@gmail.com</a>
+            <a href="tel:+12082521226">208-252-1226</a>
+          </div>
+          <div class="download-row">
+            <a class="btn btn-fill" href="assets/McKenna Wilson Design Engineer Resume.pdf" target="_blank" rel="noopener noreferrer" download>Download Resume PDF</a>
+            <a class="btn btn-outline" href="assets/McKenna Wilson Design Engineer Resume.pdf" target="_blank" rel="noopener noreferrer">Open Resume PDF</a>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <img src="assets/resume-hero-photo.png" alt="McKenna Wilson working with a team">
+        </div>
+      </div>
+    </section>
+
+    <section class="resume-grid">
+      <div class="stack">
+        <article class="panel">
+          <h2 class="section-title">Work Experience</h2>
+
+          <div class="entry">
+            <div class="entry-title">Adobe</div>
+            <div class="entry-meta">Product Development</div>
+            <ul>
+              <li>Contributed to a product sprint by collaborating with cross functional teamss</li>
+              <li>Partnered with software engineers to design and implement scalable, long-term
+                solutions</li>
+              <li>Developed and evaluated product solutions with a strong focus on user needs</li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-title">Bamboo HR</div>
+            <div class="entry-meta">Design AI Solutions</div>
+            <ul>
+              <li>Focused on improving the AI chatbot for Bamboo HR</li>
+              <li>Worked with an AI software development team to improve the chatbot's usability and accuracy</li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-title">Wild Horse Creek Ranch Outfitters</div>
+            <div class="entry-meta">Website Development</div>
+            <ul>
+              <li>Implemented both backend and frontend development work.</li>
+              <li>Created a style guide and brand kit.</li>
+              <li>Designed UI flows and performed usability testing.</li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-title">Iranians of Utah</div>
+            <div class="entry-meta">Website Design / Development</div>
+            <ul>
+              <li>Created visual branding for the website and social platforms.</li>
+              <li>Developed marketing materials to increase event participation.</li>
+              <li>Built and launched a new site using WordPress, Figma, and Adobe Creative Cloud.</li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-title">UVU Online Store</div>
+            <div class="entry-meta">Wireframing, Prototyping, Analytics</div>
+            <ul>
+              <li>Used Google Analytics and Microsoft Clarity to track behavior.</li>
+              <li>Ran usability tests and redesigned the landing page to increase sales.</li>
+            </ul>
+          </div>
+          
+          <div class="entry">
+            <div class="entry-title">Nutri Lift</div>
+            <div class="entry-meta">Wireframing and Prototyping</div>
+            <ul>
+              <li>Created wireframes and prototypes in Figma.</li>
+              <li>Ran usability tests and captured feedback for iterations.</li>
+              <li>Created the brand logo and brand kit.</li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-title">Bear Lodge Resort </div>
+            <div class="entry-meta">Program Project Manager / Digital Designer</div>
+            <ul>
+              <li>Developed and launched a comprehensive fly-fishing program.</li>
+              <li>Created digital and physical branding and product lines.</li>
+              <li>Led marketing and sales campaigns serving hundreds of clients.</li>
+            </ul>
+          </div>
+
+          <div class="entry">
+            <div class="entry-title">Smile Systems </div>
+            <div class="entry-meta">Digital Production</div>
+            <ul>
+              <li>Used multiple software systems for precise patient-specific customization.</li>
+              <li>Maintained quality standards while contributing to products generating $50k monthly revenue.</li>
+            </ul>
+          </div>
+
+        </article>
+
+        <article class="panel">
+          <h2 class="section-title">Leadership and Labs</h2>
+
+          <div class="entry">
+            <div class="entry-title">President of ProdUX</div>
+            <p>Led a design and development organization collaborating with Silicon Slopes professionals and supporting a community of 260+ members.</p>
+          </div>
+
+          <div class="entry">
+            <div class="entry-title">UX Lab Assistant — Testing and Data Analytics</div>
+            <ul>
+              <li>Spearheaded biometrics-based usability research with iMotions eye tracking hardware.</li>
+              <li>Identified user friction and cognitive load patterns from behavioral data.</li>
+              <li>Synthesized findings into design recommendations that improved interface performance.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+
+      <aside class="stack">
+        <article class="panel">
+          <h2 class="section-title">Core Skills</h2>
+          <div class="chip-row">
+            <span class="chip coral">HTML5/CSS3</span>
+            <span class="chip sky">Responsive Design</span>
+            <span class="chip mint">JavaScript</span>
+            <span class="chip lilac">React</span>
+            <span class="chip lemon">Node</span>
+            <span class="chip">Figma</span>
+            <span class="chip">Adobe CC</span>
+            <span class="chip">GitHub</span>
+            <span class="chip">Usability Testing</span>
+            <span class="chip">User Research</span>
+            <span class="chip">Data Analytics</span>
+            <span class="chip">Wireframing</span>
+            <span class="chip">Prototyping</span>
+            <span class="chip">Typography</span>
+            <span class="chip">Color Theory</span>
+            <span class="chip">AI Proficient</span>
+          </div>
+        </article>
+
+        <article class="panel">
+          <h2 class="section-title">Education</h2>
+          <div class="entry">
+            <div class="entry-title">Utah Valley University</div>
+            <div class="entry-meta">Web Design and Development (UX/UI emphasis)</div>
+            <p>Associate of Science and Associate of Web Design and Development.</p>
+          </div>
+          <div class="entry">
+            <div class="entry-title">Brigham Young University</div>
+            <div class="entry-meta">Industrial Design Coursework</div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <h2 class="section-title">Career Highlights</h2>
+          <div class="kpi">
+            <div class="kpi-value" style="color:var(--coral)">260+</div>
+            <div class="kpi-label">ProdUX community members</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-value" style="color:var(--mint)">50K</div>
+            <div class="kpi-label">Monthly revenue contribution</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-value" style="color:var(--sky)">3+</div>
+            <div class="kpi-label">Years across design and development roles</div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <h2 class="section-title">Soft Skills</h2>
+          <ul>
+            <li>Creative ideation</li>
+            <li>Strong communication and interpersonal collaboration</li>
+            <li>Time management and ownership</li>
+            <li>Problem-solving and critical thinking</li>
+            <li>Adaptability and continuous learning</li>
+          </ul>
+        </article>
+      </aside>
+    </section>
+
+    <footer>Designed and hand-coded by McKenna Wilson</footer>
+  </main>
+</body>
+</html>
