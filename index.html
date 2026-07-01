@@ -392,6 +392,10 @@
         bottom: 16px;
         max-width: none;
       }
+
+      body { cursor: auto; }
+      .cursor, .cursor-dot { display: none !important; }
+      a, button, .skill-card, .project-card, .ach-card, .astat, .contact-card, .htag, .vis-card, .nav-toggle, .agent-orb, .agent-close, .agent-preset, .agent-chip, .agent-next { cursor: pointer; }
     }
 
     /* Hero */
@@ -2621,23 +2625,25 @@
     </footer>
 
     <script>
-      // Cursor
-      const cur = document.getElementById('cursor');
-      const dot = document.getElementById('cursorDot');
-      let mx = 0, my = 0, cx = 0, cy = 0;
-      document.addEventListener('mousemove', e => {
-        mx = e.clientX; my = e.clientY;
-        dot.style.left = mx - 3 + 'px'; dot.style.top = my - 3 + 'px';
-      });
-      (function lerp() {
-        cx += (mx - cx) * 0.13; cy += (my - cy) * 0.13;
-        cur.style.left = cx - 9 + 'px'; cur.style.top = cy - 9 + 'px';
-        requestAnimationFrame(lerp);
-      })();
-      document.querySelectorAll('a,button,.skill-card,.project-card,.ach-card:not(.locked),.astat,.contact-card,.htag,.vis-card,.agent-orb,.agent-close,.agent-preset,.agent-chip,.agent-next,.nav-toggle').forEach(el => {
-        el.addEventListener('mouseenter', () => { cur.style.transform = 'scale(2.2)'; cur.style.background = 'var(--lemon)'; });
-        el.addEventListener('mouseleave', () => { cur.style.transform = 'scale(1)'; cur.style.background = 'var(--coral)'; });
-      });
+      // Cursor (desktop only)
+      if (window.matchMedia('(min-width: 821px)').matches) {
+        const cur = document.getElementById('cursor');
+        const dot = document.getElementById('cursorDot');
+        let mx = 0, my = 0, cx = 0, cy = 0;
+        document.addEventListener('mousemove', e => {
+          mx = e.clientX; my = e.clientY;
+          dot.style.left = mx - 3 + 'px'; dot.style.top = my - 3 + 'px';
+        });
+        (function lerp() {
+          cx += (mx - cx) * 0.13; cy += (my - cy) * 0.13;
+          cur.style.left = cx - 9 + 'px'; cur.style.top = cy - 9 + 'px';
+          requestAnimationFrame(lerp);
+        })();
+        document.querySelectorAll('a,button,.skill-card,.project-card,.ach-card:not(.locked),.astat,.contact-card,.htag,.vis-card,.agent-orb,.agent-close,.agent-preset,.agent-chip,.agent-next,.nav-toggle').forEach(el => {
+          el.addEventListener('mouseenter', () => { cur.style.transform = 'scale(2.2)'; cur.style.background = 'var(--lemon)'; });
+          el.addEventListener('mouseleave', () => { cur.style.transform = 'scale(1)'; cur.style.background = 'var(--coral)'; });
+        });
+      }
 
       // Mobile nav
       (function () {
