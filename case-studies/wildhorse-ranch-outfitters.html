@@ -30,6 +30,26 @@
     .wildhorse-gallery img + img {
       margin-top: 16px;
     }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+    .hero-actions .btn {
+      transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+    }
+    .hero-actions .btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: var(--shadow-lg);
+    }
+    .hero-actions .btn-live {
+      background: var(--coral);
+      color: #fff;
+    }
+    .hero-actions .btn-live:hover {
+      background: #ff5c39;
+    }
   </style>
 </head>
 <body>
@@ -44,13 +64,13 @@
     <a class="nav-logo" href="../index.html#projects">✦ McKenna Wilson</a>
     <div class="nav-actions">
       <a class="btn btn-outline" href="agriculture-ai-integration.html">← Prev Case</a>
-      <a class="btn btn-fill" href="edas-site-redesign.html">Next Case →</a>
+      <a class="btn btn-fill" href="bambooai.html">Next Case →</a>
     </div>
   </nav>
 
   <main class="page">
     <section class="hero">
-      <div class="eyebrow" style="background:var(--peach)">Case Study 03</div>
+      <div class="eyebrow" style="background:var(--peach)">Case 03</div>
       <h1>Wildhorse Creek Ranch Outfitters Website</h1>
       <p class="subtitle">A conversion-focused website redesign that clarified offerings, improved trust, and simplified the booking experience.</p>
       <div class="meta-grid">
@@ -58,6 +78,11 @@
         <div class="meta-item"><div class="meta-label">Timeline</div><div class="meta-value">4 weeks</div></div>
         <div class="meta-item"><div class="meta-label">Team</div><div class="meta-value">Solo project</div></div>
         <div class="meta-item"><div class="meta-label">Tools</div><div class="meta-value">Figma, Next.js, HTML, CSS, React, and JavaScript</div></div>
+      </div>
+      <div class="hero-actions">
+        <a href="https://idaho-bear-hunting.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-live">
+          View Wildhorse Creek Ranch Outfitters Website ↗
+        </a>
       </div>
     </section>
 
@@ -76,11 +101,6 @@
 
         <h2>Outcome</h2>
         <p>The new site improved discoverability and made booking actions much more direct, especially for mobile visitors planning trips on the go.</p>
-        <a href="https://idaho-bear-hunting.vercel.app/" 
-        target="_blank" 
-        class="text-blue-600 font-bold underline hover:text-blue-800 transition-colors">
-        View Wildhorse Creek Ranch Outfitters Website
-     </a>
       </article>
 
      

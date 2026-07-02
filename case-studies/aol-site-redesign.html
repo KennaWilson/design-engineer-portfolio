@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EDAS Site Redesign Case Study</title>
+  <title>AOL Mail Redesign Case Study</title>
   <link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16x16.png">
@@ -24,6 +24,26 @@
       max-width: 100%;
       height: auto;
     }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+    .hero-actions .btn {
+      transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+    }
+    .hero-actions .btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: var(--shadow-lg);
+    }
+    .hero-actions .btn-figma {
+      background: var(--lemon);
+      color: var(--ink);
+    }
+    .hero-actions .btn-figma:hover {
+      background: var(--sky);
+    }
   </style>
 </head>
 <body>
@@ -37,14 +57,14 @@
   <nav>
     <a class="nav-logo" href="../index.html#projects">✦ McKenna Wilson</a>
     <div class="nav-actions">
-      <a class="btn btn-outline" href="wildhorse-ranch-outfitters.html">← Prev Case</a>
-      <a class="btn btn-fill" href="../index.html#projects">Back to Dashboard</a>
+      <a class="btn btn-outline" href="kinship-website.html">← Prev Case</a>
+      <a class="btn btn-fill" href="../index.html#projects">Home →</a>
     </div>
   </nav>
 
   <main class="page">
     <section class="hero">
-      <div class="eyebrow" style="background:var(--lilac)">Case Study 05</div>
+      <div class="eyebrow" style="background:var(--lilac)">Case 08</div>
       <h1>AOL Mail Redesign</h1>
       <p class="subtitle">A full UX and UI overhaul to improve clarity, modernize the visual language, and make key actions easier to complete.</p>
       <div class="meta-grid">
@@ -53,10 +73,15 @@
         <div class="meta-item"><div class="meta-label">Team</div><div class="meta-value">Product Designer and Developer</div></div>
         <div class="meta-item"><div class="meta-label">Tools</div><div class="meta-value">Figma</div></div>
       </div>
+      <div class="hero-actions">
+        <a href="https://www.figma.com/design/0Y7nZNJwxRCYKVA4N9dmQF/McKenna-Wilson---UI-Project-1-%E2%80%94-AOL-Mail-App-Research---Mood-Boards?node-id=0-1&t=fh5MkjxaizZf6yV3-1" target="_blank" rel="noopener noreferrer" class="btn btn-figma">
+          View Case Work ↗
+        </a>
+      </div>
     </section>
 
     <section class="content-grid">
-      <article class="panel">
+      <article class="panel" style="grid-column:1/-1">
         <h2>Problem</h2>
         <p>The legacy AOL Mail experience had an outdated visual system, weak hierarchy, and fragmented content paths that made common tasks harder than necessary.</p>
 
@@ -70,29 +95,7 @@
 
         <h2>Outcome</h2>
         <p>The redesign delivered a cleaner and more coherent experience while giving internal teams a scalable foundation for future content and features.</p>
-        <a href="https://www.figma.com/design/0Y7nZNJwxRCYKVA4N9dmQF/McKenna-Wilson---UI-Project-1-%E2%80%94-AOL-Mail-App-Research---Mood-Boards?node-id=0-1&t=fh5MkjxaizZf6yV3-1" 
-        target="_blank" 
-        class="text-blue-600 font-bold underline hover:text-blue-800 transition-colors">
-        View the AOL Mail Case Study in Figma
-        </a>
       </article>
-  
-
-      <aside class="panel">
-        <h2>Impact</h2>
-        <div class="kpi">
-          <div class="kpi-num" style="color:var(--lilac)">35%</div>
-          <div class="kpi-label">Faster navigation to key pages</div>
-        </div>
-        <div class="kpi">
-          <div class="kpi-num" style="color:var(--peach)">22%</div>
-          <div class="kpi-label">Increase in form completions</div>
-        </div>
-        <div class="kpi">
-          <div class="kpi-num" style="color:var(--sky)">AA</div>
-          <div class="kpi-label">Accessibility baseline met</div>
-        </div>
-      </aside>
 
       <article class="panel domus-gallery">
         <h2>Low Fidelity Wireframes</h2>
@@ -110,7 +113,7 @@
     </section>
 
     <div class="nav-footer">
-      <a class="btn btn-outline" href="edas-site-redesign.html">← Previous case study</a>
+      <a class="btn btn-outline" href="edas-site-redesign.html">← Prev Case</a>
       <a class="btn btn-fill" href="../index.html#projects">Home →</a>
     </div>  
   </main>

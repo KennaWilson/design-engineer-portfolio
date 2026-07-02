@@ -44,7 +44,22 @@ nav {
   font-style: italic;
   font-weight: 900;
 }
-.nav-actions { display: flex; gap: 10px; }
+.nav-actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.nav-actions .btn,
+.nav-footer .btn {
+  flex: 1 1 0;
+  min-width: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+}
 
 .btn {
   display: inline-block;
@@ -168,7 +183,6 @@ h1 {
 .nav-footer {
   margin-top: 22px;
   display: flex;
-  justify-content: space-between;
   gap: 12px;
   flex-wrap: wrap;
 }
@@ -176,6 +190,23 @@ h1 {
 @media (max-width: 900px) {
   .meta-grid { grid-template-columns: 1fr 1fr; }
   .content-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 720px) {
+  nav {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .nav-actions {
+    width: 100%;
+  }
+
+  .nav-actions .btn,
+  .nav-footer .btn {
+    font-size: 12px;
+    padding: 9px 12px;
+  }
 }
 
 @media (min-width: 1280px) {

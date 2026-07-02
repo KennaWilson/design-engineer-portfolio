@@ -22,6 +22,26 @@
       max-width: 100%;
       height: auto;
     }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+    .hero-actions .btn {
+      transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+    }
+    .hero-actions .btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: var(--shadow-lg);
+    }
+    .hero-actions .btn-live {
+      background: var(--coral);
+      color: #fff;
+    }
+    .hero-actions .btn-live:hover {
+      background: #ff5c39;
+    }
   </style>
 </head>
 <body>
@@ -36,14 +56,14 @@
   <nav>
     <a class="nav-logo" href="../index.html#projects">✦ McKenna Wilson</a>
     <div class="nav-actions">
-      <a class="btn btn-outline" href="kinship-website.html">← Prev Case</a>
+      <a class="btn btn-outline" href="domus-home-hub.html">← Prev Case</a>
       <a class="btn btn-fill" href="wildhorse-ranch-outfitters.html">Next Case →</a>
     </div>
   </nav>
 
   <main class="page">
     <section class="hero">
-      <div class="eyebrow" style="background:var(--sky)">Case Study 02</div>
+      <div class="eyebrow" style="background:var(--sky)">Case 02</div>
       <h1>Agriculture and AI Integration</h1>
       <p class="subtitle">A decision-support experience that translates complex field data into clear recommendations farmers can act on quickly.</p>
       <div class="meta-grid">
@@ -52,10 +72,15 @@
         <div class="meta-item"><div class="meta-label">Team</div><div class="meta-value">Product Engineer</div></div>
         <div class="meta-item"><div class="meta-label">Tools</div><div class="meta-value">Figma, TypeScript</div></div>
       </div>
+      <div class="hero-actions">
+        <a href="https://agricultureai.lovable.app" target="_blank" rel="noopener noreferrer" class="btn btn-live">
+          View the Agriculture AI Application ↗
+        </a>
+      </div>
     </section>
 
     <section class="content-grid">
-      <article class="panel">
+      <article class="panel" style="grid-column:1/-1">
         <h2>Problem</h2>
         <p>Farmers had access to plenty of raw data, but no clear path from data to action. Existing tools were technical and time-consuming to interpret during busy workdays.</p>
 
@@ -69,28 +94,7 @@
 
         <h2>Outcome</h2>
         <p>Users adopted the feature rapidly because recommendations felt trustworthy and practical, not black-box or overly technical.</p>
-        <a href="https://agricultureai.lovable.app" 
-        target="_blank" 
-        class="text-blue-600 font-bold underline hover:text-blue-800 transition-colors">
-        View the Agriculture AI Application
-        </a>
      </article>
-
-     <aside class="panel">
-      <h2>Impact</h2>
-      <div class="kpi">
-        <div class="kpi-num" style="color:var(--coral)">40%</div>
-        <div class="kpi-label">Faster daily planning tasks</div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-num" style="color:var(--mint)">28%</div>
-        <div class="kpi-label">Fewer missed reminders</div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-num" style="color:var(--sky)">61</div>
-        <div class="kpi-label">Post-launch satisfaction score</div>
-      </div>
-    </aside>
   </section>
 
   <article class="panel domus-gallery">

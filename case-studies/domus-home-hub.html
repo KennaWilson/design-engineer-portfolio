@@ -24,10 +24,43 @@
       max-width: 100%;
       height: auto;
     }
-    .domus-links a {
-      display: block;
-      width: fit-content;
+    .domus-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+    .domus-links .hero-view-note {
+      flex: 1 1 100%;
+    }
+    .domus-links .btn {
+      transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+    }
+    .domus-links .btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: var(--shadow-lg);
+    }
+    .domus-links .btn-live {
+      background: var(--coral);
+      color: #fff;
+    }
+    .domus-links .btn-live:hover {
+      background: #ff5c39;
+    }
+    .domus-links .btn-figma {
+      background: var(--lemon);
+      color: var(--ink);
+    }
+    .domus-links .btn-figma:hover {
+      background: var(--sky);
+    }
+    .hero-view-note {
       margin-top: 10px;
+      font-family: var(--mono);
+      font-size: 11px;
+      line-height: 1.5;
+      opacity: 0.55;
+      max-width: 420px;
     }
   </style>
 </head>
@@ -43,20 +76,29 @@
    <nav>
     <a class="nav-logo" href="../index.html#projects">✦ McKenna Wilson</a>
     <div class="nav-actions">
-      <a class="btn btn-outline" href="bamboohr-automatic-meal-and-rest-breaks.html">← Prev Case</a>
-      <a class="btn btn-fill" href="kinship-website.html">Next Case →</a>
+      <a class="btn btn-outline" href="../index.html#projects">← Home</a>
+      <a class="btn btn-fill" href="agriculture-ai-integration.html">Next Case →</a>
     </div>
   </nav>
 
   <main class="page">
     <section class="hero">
-      <div class="eyebrow">Case Study 03</div>
+      <div class="eyebrow">Case 01</div>
       <h1>Domus Home Hub</h1>
       <p class="subtitle">An in-kitchen dashboard that helps busy families coordinate schedules, chores, and shared reminders with less friction.</p>
       <div class="meta-grid">
         <div class="meta-item"><div class="meta-label">Role</div><div class="meta-value">UX + Frontend + Backend</div></div>
         <div class="meta-item"><div class="meta-label">Timeline</div><div class="meta-value">2 weeks</div></div>
         <div class="meta-item"><div class="meta-label">Tools</div><div class="meta-value">Figma, React, TypeScript, Node.js, HTML, CSS, and JavaScript</div></div>
+      </div>
+      <div class="domus-links">
+        <a href="https://kitchen-dashboard-app.netlify.app" target="_blank" rel="noopener noreferrer" class="btn btn-live">
+          View the Domus Home Hub ↗
+        </a>
+        <a href="https://www.figma.com/design/klQCmt8zrx217prKezWKwX/Domus-Case-Study-?node-id=0-1&t=2eLolifIpc8ak6E6-1" target="_blank" rel="noopener noreferrer" class="btn btn-figma">
+          View Case Work ↗
+        </a>
+        <p class="hero-view-note">Responsive for a kitchen dashboard app — would not recommend viewing on mobile.</p>
       </div>
     </section>
 
@@ -75,14 +117,6 @@
 
         <h2>Outcome</h2>
         <p>The shipped experience reduced missed chores and schedule conflicts while giving families a shared source of truth in one place.</p>
-        <div class="domus-links">
-          <a href="https://kitchen-dashboard-app.netlify.app" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-bold underline hover:text-blue-800 transition-colors">
-            View the Domus Home Hub
-          </a>
-          <a href="https://www.figma.com/design/klQCmt8zrx217prKezWKwX/Domus-Case-Study-?node-id=0-1&t=2eLolifIpc8ak6E6-1" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-bold underline hover:text-blue-800 transition-colors">
-            View the Domus Home Hub Case Study in Figma
-          </a>
-        </div>
 
      
       </article>
